@@ -41,5 +41,12 @@ namespace GrafikaProj
 
             }
         }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            this.imageCustomizator.SetBrightness((int) e.NewValue);
+            this.imageCustomizator.ApplyFilters();
+            CustomizedImageViewer.Source = this.imageCustomizator.GetCustomizedSource();
+        }
     }
 }
