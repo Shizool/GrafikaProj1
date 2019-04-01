@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GrafikaProj"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="920" Width="1280" ResizeMode="NoResize">
+
+  <Grid>
+    <Button Content="Załaduj obrazek" Height="33" Margin="10,667,1136,0" VerticalAlignment="Top" Click="LoaderClick"/>
+    <Image Name="OriginImageViewer" HorizontalAlignment="Left" Height="600" Margin="10,48,0,0" VerticalAlignment="Top" Width="600"/>
+    <Image Name="CustomizedImageViewer" HorizontalAlignment="Left" Height="600" Margin="664,48,0,0" VerticalAlignment="Top" Width="600"/>
+
+  </Grid>
 </Window>
