@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,23 @@ namespace GrafikaProj
 	public partial class MainWindow : Window
 	{
         ImageCustomizator imageCustomizator;
+        double defaultBorderTop;
+        double defaultBorderBottom;
+        double defaultBorderLeft;
+        double defaultBorderRight;
+        int maxWidth = 600;
+        int maxHeight = 600;
+
         public MainWindow()
 		{
             imageCustomizator = new ImageCustomizator();
 			InitializeComponent();
-		}
+            defaultBorderTop = ImageBorder.Margin.Top;
+            defaultBorderBottom = ImageBorder.Margin.Bottom;
+            defaultBorderLeft = ImageBorder.Margin.Left;
+            defaultBorderRight = ImageBorder.Margin.Right;
+
+        }
 
         private void LoaderClick(object sender, RoutedEventArgs e)
         {
@@ -47,6 +60,42 @@ namespace GrafikaProj
             this.imageCustomizator.SetBrightness((int) e.NewValue);
             this.imageCustomizator.ApplyFilters();
             CustomizedImageViewer.Source = this.imageCustomizator.GetCustomizedSource();
+        }
+
+        private void BottomRangeSliderValueChanged(object sender, RoutedEventArgs e)
+        {
+            if (ImageBorder != null)
+            {
+                string[] parameters = sender.ToString().Split('-');
+                double min = 0;
+                double max = 0;
+                double.TryParse(parameters.First(), out min);
+                double.TryParse(parameters.Last(), out max);
+                double left = defaultBorderLeft + (maxWidth * min);
+                double right = defaultBorderRight + (maxWidth * (1 - max));
+                Thickness margin = ImageBorder.Margin;
+                margin.Left = left;
+                margin.Right = right;
+                ImageBorder.Margin = margin;
+            }
+        }
+
+        private void LeftRangeSliderValueChanged(object sender, RoutedEventArgs e)
+        {
+            if (ImageBorder != null)
+            {
+                string[] parameters = sender.ToString().Split('-');
+                double min = 0;
+                double max = 0;
+                double.TryParse(parameters.First(), out min);
+                double.TryParse(parameters.Last(), out max);
+                double top = defaultBorderTop + (maxHeight * (1 - max));
+                double bottom = defaultBorderBottom + (maxHeight * min);
+                Thickness margin = ImageBorder.Margin;
+                margin.Top = top;
+                margin.Bottom = bottom;
+                ImageBorder.Margin = margin;
+            }
         }
     }
 }

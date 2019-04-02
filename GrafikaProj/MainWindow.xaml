@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="Edytor obrazów" Height="918.5" Width="1280" ResizeMode="NoResize" Background="#252526">
     <Grid>
-        <xctk:RangeSlider Width="600" Height="20" Margin="664,653,10,216" Minimum="0" Maximum="100"/>
-        <xctk:RangeSlider  Orientation="Vertical" Height="600" Width="20" Margin="639,48,615,241" Minimum="0" Maximum="100"/>
+        <xctk:RangeSlider Width="600" Height="20" Margin="664,653,10,216" Minimum="0" Maximum="1" LowerValue="0" HigherValue="1" HigherValueChanged="BottomRangeSliderValueChanged" LowerValueChanged="BottomRangeSliderValueChanged" Name="BottomRangeSlider"/>
+        <xctk:RangeSlider  Orientation="Vertical" Height="600" Width="20" Margin="639,48,615,241" Minimum="0" Maximum="1" LowerValue="0" HigherValue="1" HigherValueChanged="LeftRangeSliderValueChanged" LowerValueChanged="LeftRangeSliderValueChanged" Name="LeftRangeSlider"/>
         <Button Content="Załaduj obrazek" Height="33" Margin="10,681,1136,0" VerticalAlignment="Top" Click="LoaderClick"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="600" Margin="10,48,0,0" VerticalAlignment="Top" Width="600"/>
         <Image x:Name="OriginImageViewer" HorizontalAlignment="Left" Height="600" Margin="10,48,0,0" VerticalAlignment="Top" Width="600"/>
@@ -25,5 +25,6 @@
         <Button Content="Zapisz obrazek" HorizontalAlignment="Left" Height="41" Margin="1110,817,0,0" VerticalAlignment="Top" Width="152"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Height="20" Margin="11,23,0,0" TextWrapping="Wrap" Text="Źródło" VerticalAlignment="Top" Width="113"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Height="20" Margin="664,23,0,0" TextWrapping="Wrap" Text="Podgląd" VerticalAlignment="Top" Width="113"/>
+        <Border Name="ImageBorder" BorderBrush="Red" BorderThickness="2" Margin="664,48,10,241"/>
     </Grid>
 </Window>
