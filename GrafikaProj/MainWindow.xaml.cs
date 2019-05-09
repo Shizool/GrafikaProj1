@@ -1,101 +1,107 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
+﻿using System;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Microsoft.Win32;
+
 namespace GrafikaProj
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
-	{
-        ImageCustomizator imageCustomizator;
-        double defaultBorderTop;
-        double defaultBorderBottom;
-        double defaultBorderLeft;
-        double defaultBorderRight;
-        int maxWidth = 600;
-        int maxHeight = 600;
+	public partial class MainWindow
+    {
+        private readonly ImageCustomizator _imageCustomizator;
+        private readonly double _defaultBorderTop;
+        private readonly double _defaultBorderBottom;
+        private readonly double _defaultBorderLeft;
+        private readonly double _defaultBorderRight;
+        private new const int MaxWidth = 600;
+        private new const int MaxHeight = 600;
+        private ChartWindow chartWindow = new ChartWindow();
 
         public MainWindow()
 		{
-            imageCustomizator = new ImageCustomizator();
+            _imageCustomizator = new ImageCustomizator(chartWindow);
 			InitializeComponent();
-            defaultBorderTop = ImageBorder.Margin.Top;
-            defaultBorderBottom = ImageBorder.Margin.Bottom;
-            defaultBorderLeft = ImageBorder.Margin.Left;
-            defaultBorderRight = ImageBorder.Margin.Right;
+//            _defaultBorderTop = ImageBorder.Margin.Top;
+//            _defaultBorderBottom = ImageBorder.Margin.Bottom;
+//            _defaultBorderLeft = ImageBorder.Margin.Left;
+//            _defaultBorderRight = ImageBorder.Margin.Right;
 
         }
 
         private void LoaderClick(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "Załaduj obrazek";
-            dialog.Filter = "Pliki obrazów (*.bmp)|*.bmp";
-            if (dialog.ShowDialog() == true)
-            {
-                BitmapImage loadedImage = new BitmapImage(new Uri(dialog.FileName));
-                this.imageCustomizator.SetSource(loadedImage);
-                OriginImageViewer.Source = this.imageCustomizator.GetCustomizedSource();
-                CustomizedImageViewer.Source = this.imageCustomizator.GetCustomizedSource();
-
-            }
+            var dialog = new OpenFileDialog {Title = "Załaduj obrazek", Filter = "Pliki obrazów (*.bmp)|*.bmp"};
+            if (dialog.ShowDialog() != true) return;
+            var loadedImage = new BitmapImage(new Uri(dialog.FileName));
+            _imageCustomizator.SetSource(loadedImage);
+            OriginImageViewer.Source = _imageCustomizator.GetCustomizedSource();
+            CustomizedImageViewer.Source = _imageCustomizator.GetCustomizedSource();
         }
 
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Brightness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            this.imageCustomizator.SetBrightness((int) e.NewValue);
-            this.imageCustomizator.ApplyFilters();
-            CustomizedImageViewer.Source = this.imageCustomizator.GetCustomizedSource();
+            _imageCustomizator.SetBrightness((int) e.NewValue);
+            _imageCustomizator.ApplyFilters();
+            CustomizedImageViewer.Source = _imageCustomizator.GetCustomizedSource();
         }
 
-        private void BottomRangeSliderValueChanged(object sender, RoutedEventArgs e)
+//        private void BottomRangeSliderValueChanged(object sender, RoutedEventArgs e)
+//        {
+//            if (ImageBorder == null) return;
+//            
+//            var parameters = sender.ToString().Split('-');
+//            double.TryParse(parameters.First(), out var min);
+//            double.TryParse(parameters.Last(), out var max);
+//            var left = _defaultBorderLeft + MaxWidth * min;
+//            var right = _defaultBorderRight + MaxWidth * (1 - max);
+//            var margin = ImageBorder.Margin;
+//            margin.Left = left;
+//            margin.Right = right;
+//            ImageBorder.Margin = margin;
+//        }
+//
+//        private void LeftRangeSliderValueChanged(object sender, RoutedEventArgs e)
+//        {
+//            if (ImageBorder == null) return;
+//            
+//            var parameters = sender.ToString().Split('-');
+//            double.TryParse(parameters.First(), out var min);
+//            double.TryParse(parameters.Last(), out var max);
+//            var top = _defaultBorderTop + MaxHeight * (1 - max);
+//            var bottom = _defaultBorderBottom + MaxHeight * min;
+//            var margin = ImageBorder.Margin;
+//            margin.Top = top;
+//            margin.Bottom = bottom;
+//            ImageBorder.Margin = margin;
+//        }
+
+        private void Contrast_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (ImageBorder != null)
-            {
-                string[] parameters = sender.ToString().Split('-');
-                double min = 0;
-                double max = 0;
-                double.TryParse(parameters.First(), out min);
-                double.TryParse(parameters.Last(), out max);
-                double left = defaultBorderLeft + (maxWidth * min);
-                double right = defaultBorderRight + (maxWidth * (1 - max));
-                Thickness margin = ImageBorder.Margin;
-                margin.Left = left;
-                margin.Right = right;
-                ImageBorder.Margin = margin;
-            }
+            _imageCustomizator.SetContrast((int)e.NewValue);
+            _imageCustomizator.ApplyFilters();
+            CustomizedImageViewer.Source = _imageCustomizator.GetCustomizedSource();
         }
 
-        private void LeftRangeSliderValueChanged(object sender, RoutedEventArgs e)
+        private void Gamma_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (ImageBorder != null)
-            {
-                string[] parameters = sender.ToString().Split('-');
-                double min = 0;
-                double max = 0;
-                double.TryParse(parameters.First(), out min);
-                double.TryParse(parameters.Last(), out max);
-                double top = defaultBorderTop + (maxHeight * (1 - max));
-                double bottom = defaultBorderBottom + (maxHeight * min);
-                Thickness margin = ImageBorder.Margin;
-                margin.Top = top;
-                margin.Bottom = bottom;
-                ImageBorder.Margin = margin;
-            }
+            _imageCustomizator.SetGamma(e.NewValue);
+            _imageCustomizator.ApplyFilters();
+            CustomizedImageViewer.Source = _imageCustomizator.GetCustomizedSource();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            chartWindow.Show();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            chartWindow.ClosingByMainWindow = true;
+            chartWindow.Close();
         }
     }
 }

@@ -1,0 +1,24 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        x:Class="GrafikaProj.ChartWindow"
+        mc:Ignorable="d"
+        Title="ChartWindow" Height="500" Width="900" ResizeMode="NoResize">
+    <Grid>
+        <wpf:CartesianChart Name="Chart" LegendLocation="None" DisableAnimations="True">
+            <wpf:CartesianChart.AxisY>
+                <wpf:Axis></wpf:Axis>
+            </wpf:CartesianChart.AxisY>
+            <wpf:CartesianChart.AxisX>
+                <wpf:Axis Title="Kolor" MinValue="0" MaxValue="255">
+                    <wpf:Axis.Separator>
+                        <wpf:Separator Step="7"></wpf:Separator>
+                    </wpf:Axis.Separator>
+                </wpf:Axis>
+            </wpf:CartesianChart.AxisX>
+        </wpf:CartesianChart>
+    </Grid>
+</Window>

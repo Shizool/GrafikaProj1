@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Windows;
+using System.Windows.Controls.DataVisualization.Charting;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -9,55 +8,69 @@ namespace GrafikaProj
 {
     class ImageCustomizator
     {
-        BitmapSource sourceBitmap;
-        BitmapSource customizedBitmap;
-        int brightness;
-        public ImageCustomizator()
-        {
+        private BitmapSource _sourceBitmap;
+        private BitmapSource _customizedBitmap;
+        private int _brightness = 0;
+        private double _contrast = 1.0;
+        private double _gamma;
+        private ChartWindow _chartWindow;
 
+        public ImageCustomizator(ChartWindow chartWindow)
+        {
+            _chartWindow = chartWindow;
         }
 
         public void SetSource(BitmapSource source)
         {
             BitmapSource grayImage = new FormatConvertedBitmap(source, PixelFormats.Gray8, null, 0);
-            this.sourceBitmap = grayImage;
-            this.customizedBitmap = grayImage;
+            _sourceBitmap = grayImage;
+            _customizedBitmap = grayImage;
         }
 
         public BitmapSource GetCustomizedSource()
         {
-            return customizedBitmap;
+            return _customizedBitmap;
         }
 
         public void SetBrightness(int value)
         {
-            this.brightness = value;
+            _brightness = value;
         }
 
-        public void ApplyFilters()
+        public void SetContrast(int value)
         {
-            if (sourceBitmap != null)
+            _contrast = (259.0 * (value + 255.0)) / (255.0 * (259.0 - value));
+        }
+        public void SetGamma(double value)
+        {
+            _gamma = value;
+        }
+
+        public async void ApplyFilters()
+        {
+            if (_sourceBitmap == null) return;
+            
+            var pixelsArray = new byte[_sourceBitmap.PixelHeight * _sourceBitmap.PixelWidth];
+            _sourceBitmap.CopyPixels(pixelsArray, _sourceBitmap.PixelWidth, 0);
+            int[] grayColorCount = new int[256];
+            for (var x = 0; x < pixelsArray.Length; x++)
             {
-                byte[] pixelsArray = new byte[sourceBitmap.PixelHeight * sourceBitmap.PixelWidth];
-                sourceBitmap.CopyPixels(pixelsArray, sourceBitmap.PixelWidth, 0);
-                for (int x = 0; x < pixelsArray.Length; x++)
-                {
-                    if (pixelsArray[x] + this.brightness < 0)
-                    {
-                        pixelsArray[x] = 0;
-                    }
-                    else if (pixelsArray[x] + this.brightness <= 255)
-                    {
-                        pixelsArray[x] = (byte)(pixelsArray[x] + this.brightness);
-                    }
-                    else
-                    {
-                        pixelsArray[x] = 255;
-                    }
-                }
-                BitmapSource temp = BitmapSource.Create(sourceBitmap.PixelWidth, sourceBitmap.PixelHeight, sourceBitmap.DpiX, sourceBitmap.DpiY, PixelFormats.Gray8, null, pixelsArray, sourceBitmap.PixelWidth);
-                this.customizedBitmap = temp;
+                pixelsArray[x] = Truncate(pixelsArray[x] + _brightness);
+                pixelsArray[x] = Truncate((int)(_contrast * (pixelsArray[x] - 128) + 128));
+                pixelsArray[x] = Truncate((int)(255.0 * System.Math.Pow(pixelsArray[x] / 255.0, _gamma)));
+                grayColorCount[pixelsArray[x]] += 1;
             }
+            var temp = BitmapSource.Create(_sourceBitmap.PixelWidth, _sourceBitmap.PixelHeight, _sourceBitmap.DpiX, _sourceBitmap.DpiY, PixelFormats.Gray8, null, pixelsArray, _sourceBitmap.PixelWidth);
+            _customizedBitmap = temp;
+            _chartWindow.applyDataToChart(grayColorCount);
+        }
+        
+        private static byte Truncate(int value)
+        {
+            if(value < 0) return 0;
+            if(value > 255) return 255;
+
+            return (byte) value;
         }
 
     }

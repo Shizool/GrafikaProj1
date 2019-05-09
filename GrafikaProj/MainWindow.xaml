@@ -3,28 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:local="clr-namespace:GrafikaProj" x:Class="GrafikaProj.MainWindow"
+        x:Class="GrafikaProj.MainWindow"
         mc:Ignorable="d"
-        Title="Edytor obrazów" Height="918.5" Width="1280" ResizeMode="NoResize" Background="#252526">
+        Title="Edytor obrazów" Height="918.5" Width="1290" ResizeMode="NoResize" Background="#252526">
     <Grid>
-        <xctk:RangeSlider Width="600" Height="20" Margin="664,653,10,216" Minimum="0" Maximum="1" LowerValue="0" HigherValue="1" HigherValueChanged="BottomRangeSliderValueChanged" LowerValueChanged="BottomRangeSliderValueChanged" Name="BottomRangeSlider"/>
-        <xctk:RangeSlider  Orientation="Vertical" Height="600" Width="20" Margin="639,48,615,241" Minimum="0" Maximum="1" LowerValue="0" HigherValue="1" HigherValueChanged="LeftRangeSliderValueChanged" LowerValueChanged="LeftRangeSliderValueChanged" Name="LeftRangeSlider"/>
+        <!-- <xctk:RangeSlider Width="600" Height="20" Margin="664,653,10,216" Minimum="0" Maximum="1" LowerValue="0" HigherValue="1" HigherValueChanged="BottomRangeSliderValueChanged" LowerValueChanged="BottomRangeSliderValueChanged" x:Name="BottomRangeSlider"/> -->
+        <!-- <xctk:RangeSlider  Orientation="Vertical" Height="600" Width="20" Margin="639,48,615,241" Minimum="0" Maximum="1" LowerValue="0" HigherValue="1" HigherValueChanged="LeftRangeSliderValueChanged" LowerValueChanged="LeftRangeSliderValueChanged" x:Name="LeftRangeSlider"/> -->
         <Button Content="Załaduj obrazek" Height="33" Margin="10,681,1136,0" VerticalAlignment="Top" Click="LoaderClick"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="600" Margin="10,48,0,0" VerticalAlignment="Top" Width="600"/>
         <Image x:Name="OriginImageViewer" HorizontalAlignment="Left" Height="600" Margin="10,48,0,0" VerticalAlignment="Top" Width="600"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="600" Margin="664,48,0,0" VerticalAlignment="Top" Width="600"/>
-        <Image x:Name="CustomizedImageViewer" HorizontalAlignment="Left" Height="600" Margin="664,48,0,0" VerticalAlignment="Top" Width="600"/>
-        <Slider HorizontalAlignment="Left" Margin="91,747,0,0" VerticalAlignment="Top" Width="300" Value="0" Minimum="-255" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+        <Image x:Name="CustomizedImageViewer" HorizontalAlignment="Left" Height="600" Margin="662,48,0,0" VerticalAlignment="Top" Width="600"/>
+        <Slider HorizontalAlignment="Left" Margin="91,747,0,0" VerticalAlignment="Top" Width="300" Value="0" Minimum="-255" Maximum="255" ValueChanged="Brightness_ValueChanged"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="11,737,0,122" TextWrapping="Wrap" Text="Jasność" FontSize="20px" VerticalAlignment="center" Width="80" Height="28"/>
-        <Button Content="Histogram" HorizontalAlignment="Left" Height="33" Margin="1173,681,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Content="Histogram" HorizontalAlignment="Left" Height="33" Margin="1173,681,0,0" VerticalAlignment="Top" Width="91" Click="Button_Click"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="442,738,0,123" TextWrapping="Wrap" Text="Kontrast" FontSize="20px" VerticalAlignment="center" Width="80" Height="28"/>
-        <Slider HorizontalAlignment="Left" Margin="527,747,0,0" VerticalAlignment="Top" Width="300" Value="0" Minimum="-255" Maximum="255"/>
+        <Slider HorizontalAlignment="Left" Margin="527,747,0,0" VerticalAlignment="Top" Width="300" Value="0" Minimum="-255" Maximum="255" ValueChanged="Contrast_ValueChanged"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="882,738,0,123" TextWrapping="Wrap" Text="Gamma" FontSize="20px" VerticalAlignment="center" Width="80" Height="28"/>
-        <Slider HorizontalAlignment="Left" Margin="962,747,0,0" VerticalAlignment="Top" Width="300" Value="0" Minimum="-255" Maximum="255"/>
+        <Slider HorizontalAlignment="Left" Margin="962,747,0,0" VerticalAlignment="Top" Width="300" Value="1" Minimum="0" Maximum="8" ValueChanged="Gamma_ValueChanged"/>
         <Button Content="Zapisz obrazek" HorizontalAlignment="Left" Height="41" Margin="1110,817,0,0" VerticalAlignment="Top" Width="152"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Height="20" Margin="11,23,0,0" TextWrapping="Wrap" Text="Źródło" VerticalAlignment="Top" Width="113"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Height="20" Margin="664,23,0,0" TextWrapping="Wrap" Text="Podgląd" VerticalAlignment="Top" Width="113"/>
-        <Border Name="ImageBorder" BorderBrush="Red" BorderThickness="2" Margin="664,48,10,241"/>
+        <!-- <Border x:Name="ImageBorder" BorderBrush="Red" BorderThickness="2" Margin="664,48,10,241"/> -->
     </Grid>
 </Window>
