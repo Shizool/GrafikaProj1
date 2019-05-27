@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime;
 using System.Windows;
 using System.Windows.Controls.DataVisualization.Charting;
 using System.Windows.Media;
@@ -14,6 +16,9 @@ namespace GrafikaProj
         private double _contrast = 1.0;
         private double _gamma;
         private ChartWindow _chartWindow;
+        private int[] contrastMap = new int[256];
+        private int[] gammaMap = new int[256];
+        private int[] brightnessMap = new int[256];
 
         public ImageCustomizator(ChartWindow chartWindow)
         {
@@ -23,7 +28,7 @@ namespace GrafikaProj
         public void SetSource(BitmapSource source)
         {
             BitmapSource grayImage = new FormatConvertedBitmap(source, PixelFormats.Gray8, null, 0);
-            _sourceBitmap = grayImage;
+            _sourceBitmap = new WriteableBitmap(grayImage);
             _customizedBitmap = grayImage;
         }
 
@@ -46,31 +51,57 @@ namespace GrafikaProj
             _gamma = value;
         }
 
-        public async void ApplyFilters()
+        public void ApplyFilters(Point startPoint, Point endPoint)
         {
             if (_sourceBitmap == null) return;
-            
-            var pixelsArray = new byte[_sourceBitmap.PixelHeight * _sourceBitmap.PixelWidth];
-            _sourceBitmap.CopyPixels(pixelsArray, _sourceBitmap.PixelWidth, 0);
+            prepareMaps();
+
+            var area = new Int32Rect(
+                (int) (_sourceBitmap.PixelWidth * (startPoint.X / 590)),
+                (int) (_sourceBitmap.PixelHeight * (startPoint.Y / 590)), 
+                (int)((_sourceBitmap.PixelWidth * (endPoint.X / 590)) - (_sourceBitmap.PixelWidth * (startPoint.X / 590))),
+                (int)((_sourceBitmap.PixelHeight * (endPoint.Y / 590)) - (_sourceBitmap.PixelHeight * (startPoint.Y / 590)))
+                );
+
+            var pixelsArrayCopy = new byte[(int)(((_sourceBitmap.PixelWidth * (endPoint.X / 590)) - (_sourceBitmap.PixelWidth * (startPoint.X / 590))) * ((_sourceBitmap.PixelHeight * (endPoint.Y / 590)) - (_sourceBitmap.PixelHeight * (startPoint.Y / 590))))];
+            _sourceBitmap.CopyPixels(area, pixelsArrayCopy, (int)((_sourceBitmap.PixelWidth * (endPoint.X / 590)) - (_sourceBitmap.PixelWidth * (startPoint.X / 590))), 0);
+
             int[] grayColorCount = new int[256];
-            for (var x = 0; x < pixelsArray.Length; x++)
+            var arrayLength = pixelsArrayCopy.Length;
+
+            for (var x = 0; x < arrayLength; x++)
             {
-                pixelsArray[x] = Truncate(pixelsArray[x] + _brightness);
-                pixelsArray[x] = Truncate((int)(_contrast * (pixelsArray[x] - 128) + 128));
-                pixelsArray[x] = Truncate((int)(255.0 * System.Math.Pow(pixelsArray[x] / 255.0, _gamma)));
-                grayColorCount[pixelsArray[x]] += 1;
+                var tmpPixel = (int) pixelsArrayCopy[x];
+                tmpPixel = brightnessMap[tmpPixel];
+                tmpPixel = contrastMap[tmpPixel];
+                pixelsArrayCopy[x] = (byte) gammaMap[tmpPixel];
+                grayColorCount[tmpPixel] += 1;
             }
-            var temp = BitmapSource.Create(_sourceBitmap.PixelWidth, _sourceBitmap.PixelHeight, _sourceBitmap.DpiX, _sourceBitmap.DpiY, PixelFormats.Gray8, null, pixelsArray, _sourceBitmap.PixelWidth);
-            _customizedBitmap = temp;
+            
+            var wrBitmap = (WriteableBitmap)(_sourceBitmap.Clone());
+            wrBitmap.WritePixels(area, pixelsArrayCopy,
+                (int) ((_sourceBitmap.PixelWidth * (endPoint.X / 590)) -
+                       (_sourceBitmap.PixelWidth * (startPoint.X / 590))), 0);
+            _customizedBitmap = wrBitmap.Clone();
             _chartWindow.applyDataToChart(grayColorCount);
         }
         
-        private static byte Truncate(int value)
+        private static int Truncate(int value)
         {
             if(value < 0) return 0;
             if(value > 255) return 255;
 
-            return (byte) value;
+            return value;
+        }
+
+        private void prepareMaps()
+        {
+            for (var x = 0; x < 256; x++)
+            {
+                brightnessMap[x] = Truncate(x + _brightness);
+                contrastMap[x] = Truncate((int)(_contrast * (x - 128) + 128));
+                gammaMap[x] = Truncate((int)(255.0 * System.Math.Pow(x / 255.0, _gamma)));
+            }
         }
 
     }
