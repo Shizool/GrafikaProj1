@@ -127,24 +127,37 @@ namespace GrafikaProj
 
         /// <summary>
         /// Obsługa zapisu obrazka do pliku
+        /// Obsługiwane formaty PNG i BMP
         /// </summary>
         private void SaveClick(object sender, System.EventArgs e)
         {
             // Displays a SaveFileDialog so the user can save the Image  
             // assigned to Button2.  
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Pliki obrazów (*.bmp)|*.bmp";
+            if (CustomizedImageViewer.Source == null) return;
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Pliki obrazów (*.bmp)|*.bmp| Pliki obrazów (*.png)|*.png";
             saveFileDialog.Title = "Zapisz obraz";
             saveFileDialog.ShowDialog();
 
             // If the file name is not an empty string open it for saving.  
             if (saveFileDialog.FileName != "")
             {
-                // Saves the Image via a FileStream created by the OpenFile method.  
+
                 System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog.OpenFile();
-                var encoder = new BmpBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create((BitmapSource) (CustomizedImageViewer.Source)));
-                encoder.Save(fs);
+                switch (saveFileDialog.FilterIndex)
+                {
+                    case 0: 
+                        var bmpEncoder = new BmpBitmapEncoder();
+                        bmpEncoder.Frames.Add(BitmapFrame.Create((BitmapSource)(CustomizedImageViewer.Source)));
+                        bmpEncoder.Save(fs);
+                        break;
+                    case 1:
+                    default:
+                        var pngEncoder = new PngBitmapEncoder();
+                        pngEncoder.Frames.Add(BitmapFrame.Create((BitmapSource)(CustomizedImageViewer.Source)));
+                        pngEncoder.Save(fs);
+                        break;
+                }
             }
         }
         /// <summary>
