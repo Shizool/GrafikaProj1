@@ -1,0 +1,304 @@
+\hypertarget{class_grafika_proj_1_1_main_window}{}\section{Grafika\+Proj.\+Main\+Window Class Reference}
+\label{class_grafika_proj_1_1_main_window}\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+
+
+Główne okno programu  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grafika_proj_1_1_main_window_a50e09c074337ab658c05dd6f7c0378b1}{Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Inicjalizacja głównego okna \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a1575c0a51eae92482a7d3aa69f88058a}{On\+Closing}} (Cancel\+Event\+Args e)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a987805e1fd3b72da6a64a0134944a2bd}{Loader\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa ładowania obrazka \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a7d75ee46d529a9c3f8cba914bc6ce0c1}{Brightness\+\_\+\+Value\+Changed}} (object sender, Routed\+Property\+Changed\+Event\+Args$<$ double $>$ e)
+\begin{DoxyCompactList}\small\item\em Obsługa zdarzenie zmiany wartości slider\textquotesingle{}a jasności \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a994f218057b535a3f002eb42fca0ecd0}{Contrast\+\_\+\+Value\+Changed}} (object sender, Routed\+Property\+Changed\+Event\+Args$<$ double $>$ e)
+\begin{DoxyCompactList}\small\item\em Obsługa zdarzenie zmiany wartości slider\textquotesingle{}a kontrastu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a3e949c359663048bc3d28baab78111f0}{Gamma\+\_\+\+Value\+Changed}} (object sender, Routed\+Property\+Changed\+Event\+Args$<$ double $>$ e)
+\begin{DoxyCompactList}\small\item\em Obsługa zdarzenie zmiany wartości slider\textquotesingle{}a Gammy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a787e0f1c91e2c159b35271e5ff3b4ec6}{Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa przycisku histogramu \end{DoxyCompactList}\item 
+new void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_af8f425f347eac5ffc828e032eef48496}{Mouse\+Down}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa zdarzenie kliknięcia myszą dla zaznaczania obszaru \end{DoxyCompactList}\item 
+new void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a6cab0f4d9982cfdf44b131ccb21d7138}{Mouse\+Up}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa zdarzenie odkliknięcia myszy dla zaznaczania obszaru \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a73bef7d10440a963f0e15a972dcbe941}{Reset\+Position}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa zdarzenie kliknięcia prawego przycisku myszy. Powoduje zresetowanie pozycji zaznaczonego obszaru \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a204574e641ee3b1b06fcfbb3be4aca90}{Save\+Click}} (object sender, System.\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa zapisu obrazka do pliku \end{DoxyCompactList}\item 
+new void \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a5b445a8533469df91eb5d3cc963a447d}{Mouse\+Move}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Poruszanie myszy po obrazie. Za każdym poruszeniem pobiera aktualną pozycję myszy i ustawia odpowiednio obszar \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator}{Image\+Customizator}} \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a82253cbf931b7474d0612bbb8406612a}{\+\_\+image\+Customizator}}
+\item 
+\mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}} \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a540f54fa7bfa520e1ba83e97670c362b}{chart\+Window}} = new \mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}}()
+\item 
+bool \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a17347592f302b3ce2b6a1367903406e6}{Is\+Selecting}} = false
+\item 
+\mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}? \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a9cba39066f4e29a6f6e629d8b89dfcc4}{mouse\+Start}}
+\item 
+\mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}} \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a8f69f3a3c8a976ea669d2cbbeff7acfa}{start\+Point}} = new \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}(0,0)
+\item 
+\mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}} \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a18572e2c995fd57f4d10443aa479f444}{end\+Point}} = new \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}(590,590)
+\item 
+Thickness \mbox{\hyperlink{class_grafika_proj_1_1_main_window_a41a4fdf85f2929739a00381022cfd252}{start\+Margin}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Główne okno programu 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a50e09c074337ab658c05dd6f7c0378b1}\label{class_grafika_proj_1_1_main_window_a50e09c074337ab658c05dd6f7c0378b1}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Grafika\+Proj.\+Main\+Window.\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicjalizacja głównego okna 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a7d75ee46d529a9c3f8cba914bc6ce0c1}\label{class_grafika_proj_1_1_main_window_a7d75ee46d529a9c3f8cba914bc6ce0c1}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!Brightness\_ValueChanged@{Brightness\_ValueChanged}}
+\index{Brightness\_ValueChanged@{Brightness\_ValueChanged}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{Brightness\_ValueChanged()}{Brightness\_ValueChanged()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Main\+Window.\+Brightness\+\_\+\+Value\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Property\+Changed\+Event\+Args$<$ double $>$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa zdarzenie zmiany wartości slider\textquotesingle{}a jasności 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a787e0f1c91e2c159b35271e5ff3b4ec6}\label{class_grafika_proj_1_1_main_window_a787e0f1c91e2c159b35271e5ff3b4ec6}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!Button\_Click@{Button\_Click}}
+\index{Button\_Click@{Button\_Click}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{Button\_Click()}{Button\_Click()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Main\+Window.\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa przycisku histogramu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a994f218057b535a3f002eb42fca0ecd0}\label{class_grafika_proj_1_1_main_window_a994f218057b535a3f002eb42fca0ecd0}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!Contrast\_ValueChanged@{Contrast\_ValueChanged}}
+\index{Contrast\_ValueChanged@{Contrast\_ValueChanged}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{Contrast\_ValueChanged()}{Contrast\_ValueChanged()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Main\+Window.\+Contrast\+\_\+\+Value\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Property\+Changed\+Event\+Args$<$ double $>$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa zdarzenie zmiany wartości slider\textquotesingle{}a kontrastu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a3e949c359663048bc3d28baab78111f0}\label{class_grafika_proj_1_1_main_window_a3e949c359663048bc3d28baab78111f0}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!Gamma\_ValueChanged@{Gamma\_ValueChanged}}
+\index{Gamma\_ValueChanged@{Gamma\_ValueChanged}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{Gamma\_ValueChanged()}{Gamma\_ValueChanged()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Main\+Window.\+Gamma\+\_\+\+Value\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Property\+Changed\+Event\+Args$<$ double $>$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa zdarzenie zmiany wartości slider\textquotesingle{}a Gammy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a987805e1fd3b72da6a64a0134944a2bd}\label{class_grafika_proj_1_1_main_window_a987805e1fd3b72da6a64a0134944a2bd}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!LoaderClick@{LoaderClick}}
+\index{LoaderClick@{LoaderClick}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{LoaderClick()}{LoaderClick()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Main\+Window.\+Loader\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa ładowania obrazka 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_af8f425f347eac5ffc828e032eef48496}\label{class_grafika_proj_1_1_main_window_af8f425f347eac5ffc828e032eef48496}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!MouseDown@{MouseDown}}
+\index{MouseDown@{MouseDown}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{MouseDown()}{MouseDown()}}
+{\footnotesize\ttfamily new void Grafika\+Proj.\+Main\+Window.\+Mouse\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa zdarzenie kliknięcia myszą dla zaznaczania obszaru 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a5b445a8533469df91eb5d3cc963a447d}\label{class_grafika_proj_1_1_main_window_a5b445a8533469df91eb5d3cc963a447d}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!MouseMove@{MouseMove}}
+\index{MouseMove@{MouseMove}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{MouseMove()}{MouseMove()}}
+{\footnotesize\ttfamily new void Grafika\+Proj.\+Main\+Window.\+Mouse\+Move (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Poruszanie myszy po obrazie. Za każdym poruszeniem pobiera aktualną pozycję myszy i ustawia odpowiednio obszar 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a6cab0f4d9982cfdf44b131ccb21d7138}\label{class_grafika_proj_1_1_main_window_a6cab0f4d9982cfdf44b131ccb21d7138}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!MouseUp@{MouseUp}}
+\index{MouseUp@{MouseUp}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{MouseUp()}{MouseUp()}}
+{\footnotesize\ttfamily new void Grafika\+Proj.\+Main\+Window.\+Mouse\+Up (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa zdarzenie odkliknięcia myszy dla zaznaczania obszaru 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a1575c0a51eae92482a7d3aa69f88058a}\label{class_grafika_proj_1_1_main_window_a1575c0a51eae92482a7d3aa69f88058a}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!OnClosing@{OnClosing}}
+\index{OnClosing@{OnClosing}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{OnClosing()}{OnClosing()}}
+{\footnotesize\ttfamily override void Grafika\+Proj.\+Main\+Window.\+On\+Closing (\begin{DoxyParamCaption}\item[{Cancel\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a73bef7d10440a963f0e15a972dcbe941}\label{class_grafika_proj_1_1_main_window_a73bef7d10440a963f0e15a972dcbe941}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!ResetPosition@{ResetPosition}}
+\index{ResetPosition@{ResetPosition}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{ResetPosition()}{ResetPosition()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Main\+Window.\+Reset\+Position (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa zdarzenie kliknięcia prawego przycisku myszy. Powoduje zresetowanie pozycji zaznaczonego obszaru 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a204574e641ee3b1b06fcfbb3be4aca90}\label{class_grafika_proj_1_1_main_window_a204574e641ee3b1b06fcfbb3be4aca90}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!SaveClick@{SaveClick}}
+\index{SaveClick@{SaveClick}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{SaveClick()}{SaveClick()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Main\+Window.\+Save\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{System.\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsługa zapisu obrazka do pliku 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a82253cbf931b7474d0612bbb8406612a}\label{class_grafika_proj_1_1_main_window_a82253cbf931b7474d0612bbb8406612a}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!\_imageCustomizator@{\_imageCustomizator}}
+\index{\_imageCustomizator@{\_imageCustomizator}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{\_imageCustomizator}{\_imageCustomizator}}
+{\footnotesize\ttfamily readonly \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator}{Image\+Customizator}} Grafika\+Proj.\+Main\+Window.\+\_\+image\+Customizator\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a540f54fa7bfa520e1ba83e97670c362b}\label{class_grafika_proj_1_1_main_window_a540f54fa7bfa520e1ba83e97670c362b}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!chartWindow@{chartWindow}}
+\index{chartWindow@{chartWindow}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{chartWindow}{chartWindow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}} Grafika\+Proj.\+Main\+Window.\+chart\+Window = new \mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a18572e2c995fd57f4d10443aa479f444}\label{class_grafika_proj_1_1_main_window_a18572e2c995fd57f4d10443aa479f444}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!endPoint@{endPoint}}
+\index{endPoint@{endPoint}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{endPoint}{endPoint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}} Grafika\+Proj.\+Main\+Window.\+end\+Point = new \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}(590,590)\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a17347592f302b3ce2b6a1367903406e6}\label{class_grafika_proj_1_1_main_window_a17347592f302b3ce2b6a1367903406e6}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!IsSelecting@{IsSelecting}}
+\index{IsSelecting@{IsSelecting}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{IsSelecting}{IsSelecting}}
+{\footnotesize\ttfamily bool Grafika\+Proj.\+Main\+Window.\+Is\+Selecting = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a9cba39066f4e29a6f6e629d8b89dfcc4}\label{class_grafika_proj_1_1_main_window_a9cba39066f4e29a6f6e629d8b89dfcc4}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!mouseStart@{mouseStart}}
+\index{mouseStart@{mouseStart}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{mouseStart}{mouseStart}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}? Grafika\+Proj.\+Main\+Window.\+mouse\+Start\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a41a4fdf85f2929739a00381022cfd252}\label{class_grafika_proj_1_1_main_window_a41a4fdf85f2929739a00381022cfd252}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!startMargin@{startMargin}}
+\index{startMargin@{startMargin}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{startMargin}{startMargin}}
+{\footnotesize\ttfamily Thickness Grafika\+Proj.\+Main\+Window.\+start\+Margin\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_main_window_a8f69f3a3c8a976ea669d2cbbeff7acfa}\label{class_grafika_proj_1_1_main_window_a8f69f3a3c8a976ea669d2cbbeff7acfa}} 
+\index{GrafikaProj.MainWindow@{GrafikaProj.MainWindow}!startPoint@{startPoint}}
+\index{startPoint@{startPoint}!GrafikaProj.MainWindow@{GrafikaProj.MainWindow}}
+\subsubsection{\texorpdfstring{startPoint}{startPoint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}} Grafika\+Proj.\+Main\+Window.\+start\+Point = new \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}(0,0)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Grafika\+Proj1/\+Grafika\+Proj/\mbox{\hyperlink{_main_window_8xaml_8cs}{Main\+Window.\+xaml.\+cs}}\end{DoxyCompactItemize}

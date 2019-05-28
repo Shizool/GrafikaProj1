@@ -1,0 +1,172 @@
+\hypertarget{class_grafika_proj_1_1_image_customizator}{}\section{Grafika\+Proj.\+Image\+Customizator Class Reference}
+\label{class_grafika_proj_1_1_image_customizator}\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a9dc6834aafa5c3039a7b465978259547}{Image\+Customizator}} (\mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}} chart\+Window)
+\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a5d95b9b8b484b02d0ca52bbbabb80511}{Set\+Source}} (Bitmap\+Source source)
+\item 
+Bitmap\+Source \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a0935fd403698af0ed5cd681564f32a23}{Get\+Customized\+Source}} ()
+\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_ae3ae615f9b76e92d94966c79415739ec}{Set\+Brightness}} (int value)
+\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_ada6a76ab7246497018fe73209872ac04}{Set\+Contrast}} (int value)
+\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a44ab9163ee2729921866ded0fdc2db01}{Set\+Gamma}} (double value)
+\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a42cae11963d0ea1c15fc61b2f057c2a9}{Apply\+Filters}} (\mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}} start\+Point, \mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}} end\+Point)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_aebbe7a12be72bdc6a983bb84d96bf2ec}{prepare\+Maps}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_abec25ea8e460fc27087af9a04f02a5d5}{Truncate}} (int value)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bitmap\+Source \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_acc294901a465ae038fbac2f51e430698}{\+\_\+source\+Bitmap}}
+\item 
+Bitmap\+Source \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_aac8f2f701dfab0795a647e2937db0258}{\+\_\+customized\+Bitmap}}
+\item 
+int \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a707e2e0c8bccf20084b8f57939f14eff}{\+\_\+brightness}} = 0
+\item 
+double \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a505b2dec94e23a2fdcf114789dbdb71f}{\+\_\+contrast}} = 1.\+0
+\item 
+double \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a62906e53ada3c6529eb7d512b88ffeb7}{\+\_\+gamma}}
+\item 
+\mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}} \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a2c86cd312aba1f0c431edef0cc8b4f23}{\+\_\+chart\+Window}}
+\item 
+int \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a0ba86bb8684bc99b197ebd3346f532db}{contrast\+Map}} = new int\mbox{[}256\mbox{]}
+\item 
+int \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_a5e36e80e5d2060ad43ada320af49954c}{gamma\+Map}} = new int\mbox{[}256\mbox{]}
+\item 
+int \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_grafika_proj_1_1_image_customizator_acd26b1c687e2c00265dec2b927e57613}{brightness\+Map}} = new int\mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a9dc6834aafa5c3039a7b465978259547}\label{class_grafika_proj_1_1_image_customizator_a9dc6834aafa5c3039a7b465978259547}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!ImageCustomizator@{ImageCustomizator}}
+\index{ImageCustomizator@{ImageCustomizator}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{ImageCustomizator()}{ImageCustomizator()}}
+{\footnotesize\ttfamily Grafika\+Proj.\+Image\+Customizator.\+Image\+Customizator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}}}]{chart\+Window }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a42cae11963d0ea1c15fc61b2f057c2a9}\label{class_grafika_proj_1_1_image_customizator_a42cae11963d0ea1c15fc61b2f057c2a9}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!ApplyFilters@{ApplyFilters}}
+\index{ApplyFilters@{ApplyFilters}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{ApplyFilters()}{ApplyFilters()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Image\+Customizator.\+Apply\+Filters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}}]{start\+Point,  }\item[{\mbox{\hyperlink{_main_window_8xaml_8cs_af7183cff3a6e75db2170da28384d7419}{Point}}}]{end\+Point }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a0935fd403698af0ed5cd681564f32a23}\label{class_grafika_proj_1_1_image_customizator_a0935fd403698af0ed5cd681564f32a23}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!GetCustomizedSource@{GetCustomizedSource}}
+\index{GetCustomizedSource@{GetCustomizedSource}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{GetCustomizedSource()}{GetCustomizedSource()}}
+{\footnotesize\ttfamily Bitmap\+Source Grafika\+Proj.\+Image\+Customizator.\+Get\+Customized\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_aebbe7a12be72bdc6a983bb84d96bf2ec}\label{class_grafika_proj_1_1_image_customizator_aebbe7a12be72bdc6a983bb84d96bf2ec}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!prepareMaps@{prepareMaps}}
+\index{prepareMaps@{prepareMaps}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{prepareMaps()}{prepareMaps()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Image\+Customizator.\+prepare\+Maps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_ae3ae615f9b76e92d94966c79415739ec}\label{class_grafika_proj_1_1_image_customizator_ae3ae615f9b76e92d94966c79415739ec}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!SetBrightness@{SetBrightness}}
+\index{SetBrightness@{SetBrightness}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{SetBrightness()}{SetBrightness()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Image\+Customizator.\+Set\+Brightness (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_ada6a76ab7246497018fe73209872ac04}\label{class_grafika_proj_1_1_image_customizator_ada6a76ab7246497018fe73209872ac04}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!SetContrast@{SetContrast}}
+\index{SetContrast@{SetContrast}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{SetContrast()}{SetContrast()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Image\+Customizator.\+Set\+Contrast (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a44ab9163ee2729921866ded0fdc2db01}\label{class_grafika_proj_1_1_image_customizator_a44ab9163ee2729921866ded0fdc2db01}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!SetGamma@{SetGamma}}
+\index{SetGamma@{SetGamma}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{SetGamma()}{SetGamma()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Image\+Customizator.\+Set\+Gamma (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a5d95b9b8b484b02d0ca52bbbabb80511}\label{class_grafika_proj_1_1_image_customizator_a5d95b9b8b484b02d0ca52bbbabb80511}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!SetSource@{SetSource}}
+\index{SetSource@{SetSource}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{SetSource()}{SetSource()}}
+{\footnotesize\ttfamily void Grafika\+Proj.\+Image\+Customizator.\+Set\+Source (\begin{DoxyParamCaption}\item[{Bitmap\+Source}]{source }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_abec25ea8e460fc27087af9a04f02a5d5}\label{class_grafika_proj_1_1_image_customizator_abec25ea8e460fc27087af9a04f02a5d5}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!Truncate@{Truncate}}
+\index{Truncate@{Truncate}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{Truncate()}{Truncate()}}
+{\footnotesize\ttfamily static int Grafika\+Proj.\+Image\+Customizator.\+Truncate (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a707e2e0c8bccf20084b8f57939f14eff}\label{class_grafika_proj_1_1_image_customizator_a707e2e0c8bccf20084b8f57939f14eff}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!\_brightness@{\_brightness}}
+\index{\_brightness@{\_brightness}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{\_brightness}{\_brightness}}
+{\footnotesize\ttfamily int Grafika\+Proj.\+Image\+Customizator.\+\_\+brightness = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a2c86cd312aba1f0c431edef0cc8b4f23}\label{class_grafika_proj_1_1_image_customizator_a2c86cd312aba1f0c431edef0cc8b4f23}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!\_chartWindow@{\_chartWindow}}
+\index{\_chartWindow@{\_chartWindow}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{\_chartWindow}{\_chartWindow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grafika_proj_1_1_chart_window}{Chart\+Window}} Grafika\+Proj.\+Image\+Customizator.\+\_\+chart\+Window\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a505b2dec94e23a2fdcf114789dbdb71f}\label{class_grafika_proj_1_1_image_customizator_a505b2dec94e23a2fdcf114789dbdb71f}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!\_contrast@{\_contrast}}
+\index{\_contrast@{\_contrast}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{\_contrast}{\_contrast}}
+{\footnotesize\ttfamily double Grafika\+Proj.\+Image\+Customizator.\+\_\+contrast = 1.\+0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_aac8f2f701dfab0795a647e2937db0258}\label{class_grafika_proj_1_1_image_customizator_aac8f2f701dfab0795a647e2937db0258}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!\_customizedBitmap@{\_customizedBitmap}}
+\index{\_customizedBitmap@{\_customizedBitmap}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{\_customizedBitmap}{\_customizedBitmap}}
+{\footnotesize\ttfamily Bitmap\+Source Grafika\+Proj.\+Image\+Customizator.\+\_\+customized\+Bitmap\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a62906e53ada3c6529eb7d512b88ffeb7}\label{class_grafika_proj_1_1_image_customizator_a62906e53ada3c6529eb7d512b88ffeb7}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!\_gamma@{\_gamma}}
+\index{\_gamma@{\_gamma}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{\_gamma}{\_gamma}}
+{\footnotesize\ttfamily double Grafika\+Proj.\+Image\+Customizator.\+\_\+gamma\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_acc294901a465ae038fbac2f51e430698}\label{class_grafika_proj_1_1_image_customizator_acc294901a465ae038fbac2f51e430698}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!\_sourceBitmap@{\_sourceBitmap}}
+\index{\_sourceBitmap@{\_sourceBitmap}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{\_sourceBitmap}{\_sourceBitmap}}
+{\footnotesize\ttfamily Bitmap\+Source Grafika\+Proj.\+Image\+Customizator.\+\_\+source\+Bitmap\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_acd26b1c687e2c00265dec2b927e57613}\label{class_grafika_proj_1_1_image_customizator_acd26b1c687e2c00265dec2b927e57613}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!brightnessMap@{brightnessMap}}
+\index{brightnessMap@{brightnessMap}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{brightnessMap}{brightnessMap}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Grafika\+Proj.\+Image\+Customizator.\+brightness\+Map = new int\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a0ba86bb8684bc99b197ebd3346f532db}\label{class_grafika_proj_1_1_image_customizator_a0ba86bb8684bc99b197ebd3346f532db}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!contrastMap@{contrastMap}}
+\index{contrastMap@{contrastMap}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{contrastMap}{contrastMap}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Grafika\+Proj.\+Image\+Customizator.\+contrast\+Map = new int\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_grafika_proj_1_1_image_customizator_a5e36e80e5d2060ad43ada320af49954c}\label{class_grafika_proj_1_1_image_customizator_a5e36e80e5d2060ad43ada320af49954c}} 
+\index{GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}!gammaMap@{gammaMap}}
+\index{gammaMap@{gammaMap}!GrafikaProj.ImageCustomizator@{GrafikaProj.ImageCustomizator}}
+\subsubsection{\texorpdfstring{gammaMap}{gammaMap}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Grafika\+Proj.\+Image\+Customizator.\+gamma\+Map = new int\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Grafika\+Proj1/\+Grafika\+Proj/\mbox{\hyperlink{_image_customizator_8cs}{Image\+Customizator.\+cs}}\end{DoxyCompactItemize}

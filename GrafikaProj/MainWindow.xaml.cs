@@ -1,8 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
 using System.Runtime;
 using System.Windows;
 using System.Windows.Input;
@@ -13,7 +10,7 @@ using Point = System.Windows.Point;
 namespace GrafikaProj
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Główne okno programu
 	/// </summary>
 	public partial class MainWindow
     {
@@ -33,7 +30,9 @@ namespace GrafikaProj
 			InitializeComponent();
 
         }
-
+        /// <summary>
+        /// Obsługa ładowania obrazka
+        /// </summary>
         private void LoaderClick(object sender, RoutedEventArgs e)
         {
             var dialog = new OpenFileDialog {Title = "Załaduj obrazek", Filter = "Pliki obrazów (*.bmp)|*.bmp"};
@@ -54,7 +53,9 @@ namespace GrafikaProj
             CustomizedImageViewerBg.MouseRightButtonUp += ResetPosition;
 
         }
-
+        /// <summary>
+        /// Obsługa zdarzenie zmiany wartości slider'a jasności
+        /// </summary>
         private void Brightness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             _imageCustomizator.SetBrightness((int) e.NewValue);
@@ -62,7 +63,9 @@ namespace GrafikaProj
             CustomizedImageViewer.Source = _imageCustomizator.GetCustomizedSource();
         }
 
-
+        /// <summary>
+        /// Obsługa zdarzenie zmiany wartości slider'a kontrastu
+        /// </summary>
         private void Contrast_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             _imageCustomizator.SetContrast((int)e.NewValue);
@@ -70,6 +73,9 @@ namespace GrafikaProj
             CustomizedImageViewer.Source = _imageCustomizator.GetCustomizedSource();
         }
 
+        /// <summary>
+        /// Obsługa zdarzenie zmiany wartości slider'a Gammy
+        /// </summary>
         private void Gamma_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             _imageCustomizator.SetGamma(e.NewValue);
@@ -77,6 +83,9 @@ namespace GrafikaProj
             CustomizedImageViewer.Source = _imageCustomizator.GetCustomizedSource();
         }
 
+        /// <summary>
+        /// Obsługa przycisku histogramu
+        /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             chartWindow.Show();
@@ -88,17 +97,27 @@ namespace GrafikaProj
             chartWindow.Close();
         }
 
-        private void MouseDown(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Obsługa zdarzenie kliknięcia myszą dla zaznaczania obszaru
+        /// </summary>
+        private new void MouseDown(object sender, MouseEventArgs e)
         {
             IsSelecting = true;
-            // Save the start point.
             mouseStart = e.GetPosition(CustomizedImageViewerBg);
         }
 
-        private void MouseUp(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Obsługa zdarzenie odkliknięcia myszy dla zaznaczania obszaru
+        /// </summary>
+        private new void MouseUp(object sender, MouseEventArgs e)
         {
             IsSelecting = false;
         }
+
+        /// <summary>
+        /// Obsługa zdarzenie kliknięcia prawego przycisku myszy.
+        /// Powoduje zresetowanie pozycji zaznaczonego obszaru
+        /// </summary>
         private void ResetPosition(object sender, MouseEventArgs e)
         {
             selectedSpace.Margin = startMargin;
@@ -106,12 +125,15 @@ namespace GrafikaProj
             endPoint = new Point(590, 590);
         }
 
+        /// <summary>
+        /// Obsługa zapisu obrazka do pliku
+        /// </summary>
         private void SaveClick(object sender, System.EventArgs e)
         {
             // Displays a SaveFileDialog so the user can save the Image  
             // assigned to Button2.  
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Bitmap|*.bmp";
+            saveFileDialog.Filter = "Pliki obrazów (*.bmp)|*.bmp";
             saveFileDialog.Title = "Zapisz obraz";
             saveFileDialog.ShowDialog();
 
@@ -125,8 +147,11 @@ namespace GrafikaProj
                 encoder.Save(fs);
             }
         }
-
-        private void MouseMove(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Poruszanie myszy po obrazie.
+        /// Za każdym poruszeniem pobiera aktualną pozycję myszy i ustawia odpowiednio obszar
+        /// </summary>
+        private new void MouseMove(object sender, MouseEventArgs e)
         {
             if (!IsSelecting) return;
 

@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.DataVisualization.Charting;
-using System.Windows.Media;
 using LiveCharts;
 using LineSeries = LiveCharts.Wpf.LineSeries;
 
 namespace GrafikaProj
 {
     /// <summary>
-    /// Logika interakcji dla klasy Window1.xaml
+    /// Okno wyświetlające histogram
     /// </summary>
     public partial class ChartWindow : Window
     {
         public bool ClosingByMainWindow = false;
+        /// <summary>
+        /// Konstruktor inicjujący domyślne wartości wykresu
+        /// </summary>
         public ChartWindow()
         {
             InitializeComponent();
@@ -27,6 +25,9 @@ namespace GrafikaProj
             Chart.AxisX[0].Labels = Enumerable.Range(0, 256).Select(element => element.ToString()).ToList();
         }
 
+        /// <summary>
+        /// Metoda służy do zamykania okna
+        /// </summary>
         protected override void OnClosing(CancelEventArgs e)
         {
             if (ClosingByMainWindow == false)
@@ -36,6 +37,10 @@ namespace GrafikaProj
             }
         }
 
+        /// <summary>
+        /// Metoda służy do zastosowania nowych danych do wykresu odcieni szarości
+        /// </summary>
+        /// <param name="grayColorCount">Tablica zawierająca liczbe wystąpień poszczególnych odcieni</param>
         public void applyDataToChart(int[] grayColorCount)
         {
                 Application.Current.Dispatcher.Invoke((Action) delegate
